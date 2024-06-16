@@ -73,7 +73,7 @@ func Parse(text []byte) (Address, error) {
 }
 
 // ParseString returns the eth-address represented by the hexadecimal-literal.
-func ParseString(text []byte) (Address, error) {
+func ParseString(text string) (Address, error) {
 	return Parse([]byte(text))
 }
 
@@ -88,7 +88,7 @@ func ParseElsePanic(text []byte) Address {
 }
 
 // ParseStringElsePanic is similar to the ParseString func, except that it panic()s if there is an error.
-func ParseStringElsePanic(text []byte) Address {
+func ParseStringElsePanic(text string) Address {
 	return ParseElsePanic([]byte(text))
 }
 
