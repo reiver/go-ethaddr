@@ -1,0 +1,10 @@
+github.com/reiver/go-eip55 v0.0.0-20240527041653-83d5e9e05714 h1:kqpgUDvgg7XOPASTU5SkEkIJiJtXvsUdSTUsYOQdIEY=
+github.com/reiver/go-eip55 v0.0.0-20240527041653-83d5e9e05714/go.mod h1:2xGMQ+3MPfBfiFCxZ5quOeamJQeZTvpmiWiGnVHyV8I=
+golang.org/x/crypto v0.22.0 h1:g1v0xeRhjcugydODzvb3mEM9SQ0HGp9s/nh3COQ/C30=
+golang.org/x/crypto v0.22.0/go.mod h1:vr6Su+7cTlO45qkww3VDJlzDn0ctJvRgYbC2NvXHt+M=
+golang.org/x/sys v0.19.0 h1:q5f1RH2jigJ1MoAWp2KTp3gm5zAGFUTarQZ5U386+4o=
+golang.org/x/sys v0.19.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
+sourcecode.social/reiver/go-erorr v0.0.0-20230922202459-231149d185a1 h1:wpnz4JicQBLWrgGphYBls7DysIFCcnWgDz/vce/sY8E=
+sourcecode.social/reiver/go-erorr v0.0.0-20230922202459-231149d185a1/go.mod h1:NFtd7fzEf0r6A6R7JXYZfayRhPaJy0zt/18VWoLzrxA=
+sourcecode.social/reiver/go-opt v0.0.0-20240224175000-afc1a40c4b67 h1:LU315YjZxmPvedaRZeNtZ+9A2tZIoWv/EWjU1h27FvE=
+sourcecode.social/reiver/go-opt v0.0.0-20240224175000-afc1a40c4b67/go.mod h1:O6WKM2UcKkheRT/dA6A2b1tW0m+WenSbxdcXE+idxzI=
