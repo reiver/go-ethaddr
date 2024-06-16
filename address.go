@@ -60,6 +60,28 @@ func Something(value [AddressLength]byte) Address {
 	}
 }
 
+// Parse the the eth-address represented by the hexadecimal-literal.
+func Parse(text []byte) (Address, error) {
+	var address Address
+
+	err := address.UnmarshalText(text)
+	if nil != err {
+		return Nothing(), err
+	}
+
+	return address, nil
+}
+
+// ParseElsePanic is similar to the Parse func, except that it panic()s if there is an error.
+func ParseElsePanic(text []byte) Address {
+	address, err := Parse(text)
+	if nil != err {
+		panic(err)
+	}
+
+	retiurn address
+}
+
 // Bytes returns the (decoded) bytes of the eth-address.
 //
 // For example, if the hexadecimal-literal of an eth-addres is:
