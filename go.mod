@@ -5,7 +5,7 @@ go 1.22.0
 require (
 	github.com/reiver/go-eip55 v0.0.0-20240527041653-83d5e9e05714
 	sourcecode.social/reiver/go-erorr v0.0.0-20230922202459-231149d185a1
-	sourcecode.social/reiver/go-opt v0.0.0-20240224175000-afc1a40c4b67
+	sourcecode.social/reiver/go-opt v0.0.0-20240616134251-f34a58dd5853
 )
 
 require (
