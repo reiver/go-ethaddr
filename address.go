@@ -82,6 +82,25 @@ func ParseElsePanic(text []byte) Address {
 	return address
 }
 
+func BigInt(bigint *big.Int) (Address, error) {
+	if nil == bigint {
+		return Nothing(), errNilBigInt
+	}
+
+	if bigint.Cmp(minAddress) < 0 {
+		return Nothing(), erorr.Errorf("ethaddr: address-underflow — expected numerical value for address to be between %s and %s but actually was %s", minAddress, maxAddress, bigint)
+	}
+
+	if bigint.Cmp(maxAddress) > 0 {
+		return Nothing(), erorr.Errorf("ethaddr: address-overflow — expected numerical value for address to be between %s and %s but actually was %s", minAddress, maxAddress, bigint)
+	}
+
+	var address [AddressLength]byte
+	bigint.FillBytes(address[:])
+
+	return Something(address), nil
+}
+
 // Bytes returns the (decoded) bytes of the eth-address.
 //
 // For example, if the hexadecimal-literal of an eth-addres is:
