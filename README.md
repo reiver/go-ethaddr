@@ -4,7 +4,7 @@ Package **ethaddr** provides tools for working with eth-addresses, for the Go pr
 
 The **eth-address** (also known as an **ethereum-address** or **evm-address**) is a
 
-`ethaddr.Address` is meant to be a replacement for the `go-ethereum/common.Address` (from the official Ethereum golang package).
+`ethaddr.Address` is meant to be a replacement for `go-ethereum/common.Address` from the official Ethereum golang package.
 
 ## Documention
 
