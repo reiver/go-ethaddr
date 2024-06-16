@@ -60,7 +60,7 @@ func Something(value [AddressLength]byte) Address {
 	}
 }
 
-// Parse the the eth-address represented by the hexadecimal-literal.
+// Parse returns the eth-address represented by the hexadecimal-literal.
 func Parse(text []byte) (Address, error) {
 	var address Address
 
@@ -82,6 +82,7 @@ func ParseElsePanic(text []byte) Address {
 	return address
 }
 
+// BigInt returns the eth-address represented by the *big.Int.
 func BigInt(bigint *big.Int) (Address, error) {
 	if nil == bigint {
 		return Nothing(), errNilBigInt
@@ -99,6 +100,18 @@ func BigInt(bigint *big.Int) (Address, error) {
 	bigint.FillBytes(address[:])
 
 	return Something(address), nil
+}
+
+// BigIntElsePanic is similar to the BigInt func, except that it panic()s if there is an error.
+func BigIntElsePanic(bigint *big.Int) Address {
+
+	address, err := BigInt(bigint)
+	if nil != err {
+		panic(err)
+	}
+
+	return address
+
 }
 
 // Bytes returns the (decoded) bytes of the eth-address.
