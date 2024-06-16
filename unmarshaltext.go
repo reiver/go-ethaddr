@@ -4,6 +4,7 @@ import (
 	"bytes"
 
 	"sourcecode.social/reiver/go-erorr"
+	"sourcecode.social/reiver/go-hexadeca"
 )
 
 // "0x"
@@ -48,7 +49,7 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 			{
 				var ok bool
 
-				decoded0, ok = hexdecode(hex0)
+				decoded0, ok = hexadeca.DecodeByte(hex0)
 				if !ok {
 					return erorr.Errorf("ethaddr: byte number-0 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , hex0, hex0)
 				}
@@ -58,7 +59,7 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 			{
 				var ok bool
 
-				decoded1, ok = hexdecode(hex1)
+				decoded1, ok = hexadeca.DecodeByte(hex1)
 				if !ok {
 					return erorr.Errorf("ethaddr: byte number-1 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , hex1, hex1)
 				}
@@ -77,7 +78,7 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 			{
 				var ok bool
 
-				decoded0, ok = hexdecode(hex0)
+				decoded0, ok = hexadeca.DecodeByte(hex0)
 				if !ok {
 					return erorr.Errorf("ethaddr: byte number-0 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , hex0, hex0)
 				}
@@ -106,12 +107,12 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 			var mostSignificantHex  byte = rest[indexToMostSignificant]
 			var leastSignificantHex byte = rest[indexToLeastSignificant]
 
-			mostSignificant, ok := hexdecode(mostSignificantHex)
+			mostSignificant, ok := hexadeca.DecodeByte(mostSignificantHex)
 			if !ok {
 				return erorr.Errorf("ethaddr: byte number-%d (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , numHandled+indexToMostSignificant, mostSignificantHex, mostSignificantHex)
 			}
 
-			leastSignificant, ok := hexdecode(leastSignificantHex)
+			leastSignificant, ok := hexadeca.DecodeByte(leastSignificantHex)
 			if !ok {
 				return erorr.Errorf("ethaddr: byte number-%d (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , numHandled+indexToLeastSignificant, leastSignificantHex, leastSignificantHex)
 			}
