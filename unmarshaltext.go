@@ -35,9 +35,12 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 
 	var value0 byte
 	var rest []byte
+	var numHandled int
 	{
 		switch len(hex) {
 		case AddressLength*2:
+			numHandled = 2
+
 			var hex0 byte = hex[0]
 			var hex1 byte = hex[1]
 
@@ -47,7 +50,7 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 
 				decoded0, ok = hexdecode(hex0)
 				if !ok {
-					return erorr.Errorf("ethaddr: byte number-0 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is invalid." , hex0, hex0)
+					return erorr.Errorf("ethaddr: byte number-0 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , hex0, hex0)
 				}
 			}
 
@@ -57,7 +60,7 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 
 				decoded1, ok = hexdecode(hex1)
 				if !ok {
-					return erorr.Errorf("ethaddr: byte number-1 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is invalid." , hex1, hex1)
+					return erorr.Errorf("ethaddr: byte number-1 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , hex1, hex1)
 				}
 			}
 
@@ -66,6 +69,8 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 			rest = hex[2:]
 
 		case AddressLength*2 - 1:
+			numHandled = 1
+
 			var hex0 byte = hex[0]
 
 			var decoded0 byte
@@ -74,7 +79,7 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 
 				decoded0, ok = hexdecode(hex0)
 				if !ok {
-					return erorr.Errorf("ethaddr: byte zero (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is invalid." , hex0, hex0)
+					return erorr.Errorf("ethaddr: byte number-0 (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , hex0, hex0)
 				}
 			}
 
@@ -103,12 +108,12 @@ func unmarshalText(dst *[AddressLength]byte, text []byte) error {
 
 			mostSignificant, ok := hexdecode(mostSignificantHex)
 			if !ok {
-				return erorr.Errorf("ethaddr: byte number-%d (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is invalid." , indexToMostSignificant, mostSignificantHex, mostSignificantHex)
+				return erorr.Errorf("ethaddr: byte number-%d (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , numHandled+indexToMostSignificant, mostSignificantHex, mostSignificantHex)
 			}
 
 			leastSignificant, ok := hexdecode(leastSignificantHex)
 			if !ok {
-				return erorr.Errorf("ethaddr: byte number-%d (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is invalid." , indexToLeastSignificant, leastSignificantHex, leastSignificantHex)
+				return erorr.Errorf("ethaddr: byte number-%d (after \"0x\" prefix) of hexadecimal literal (%d) (%q) is not a valid hexadecimal symbol" , numHandled+indexToLeastSignificant, leastSignificantHex, leastSignificantHex)
 			}
 
 			var value byte = (mostSignificant << 4) | leastSignificant
