@@ -11,7 +11,15 @@ The **eth-address** (also known as an **ethereum-address** or **evm-address**) i
 Here is an example of loading an` ethaddr.Address` from a hexadecimal-literal stored in a Go `string`:
 
 ```golang
-address, err := ethaddr.Parse("0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed")
+address, err := ethaddr.ParseString("0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed")
+```
+
+Here is an example of loading an` ethaddr.Address` from a hexadecimal-literal stored in a Go `[]byte`:
+
+```golang
+var bytes []byte = []byte("0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed")
+
+address, err := ethaddr.Parse(bytes)
 ```
 
 Here is an example of loading an` ethaddr.Address` from a Go `[20]byte`:
@@ -23,7 +31,7 @@ address := ethaddr.Something( [20]{0x5a,0xAe,0xb6,0x05,0x3F,0x3E,0x94,0xC9,0xb9,
 Here is an example of loading an` ethaddr.Address` from a Go `*big.Int`:
 
 ```golang
-var bigint *big.Int
+var bigint *big.Int = // ...
 
 address := ethaddr.BigInt(bigint)
 ```
