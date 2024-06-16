@@ -20,6 +20,14 @@ Here is an example of loading an` ethaddr.Address` from a Go `[20]byte`:
 address := ethaddr.Something( [20]{0x5a,0xAe,0xb6,0x05,0x3F,0x3E,0x94,0xC9,0xb9,0xA0,0x9f,0x33,0x66,0x94,0x35,0xE7,0xEf,0x1B,0xeA,0xed} )
 ```
 
+Here is an example of loading an` ethaddr.Address` from a Go `*big.Int`:
+
+```golang
+var bigint *big.Int
+
+address := ethaddr.BigInt(bigint)
+```
+
 ## Documention
 
 Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-ethaddr
