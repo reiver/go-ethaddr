@@ -79,7 +79,7 @@ func ParseElsePanic(text []byte) Address {
 		panic(err)
 	}
 
-	retiurn address
+	return address
 }
 
 // Bytes returns the (decoded) bytes of the eth-address.
