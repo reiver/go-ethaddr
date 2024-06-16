@@ -2,9 +2,9 @@
 
 Package **ethaddr** provides tools for working with **eth-addresses**, for the Go programming language.
 
-The **eth-address** (also known as an **ethereum-address** or **evm-address**) is a 20-byte address — and is commonly used by EVM based networks.
+The **eth-address** (also known as an **ethereum-address** or **evm-address**) is a 20-byte address — and is commonly used by **EVM based networks**, as well as other places
 
-`ethaddr.Address` is meant to be a replacement for `go-ethereum/common.Address` from the official Ethereum golang package.
+`ethaddr.Address` is meant to be a **replacement** for `go-ethereum/common.Address` from the **official Ethereum golang package**.
 
 ## Examples
 
