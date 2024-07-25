@@ -4,7 +4,7 @@ import (
 	"bytes"
 
 	"github.com/reiver/go-erorr"
-	"sourcecode.social/reiver/go-hexadeca"
+	"github.com/reiver/go-hexadeca"
 )
 
 // "0x"
