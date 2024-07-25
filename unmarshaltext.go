@@ -3,7 +3,7 @@ package ethaddr
 import (
 	"bytes"
 
-	"sourcecode.social/reiver/go-erorr"
+	"github.com/reiver/go-erorr"
 	"sourcecode.social/reiver/go-hexadeca"
 )
 

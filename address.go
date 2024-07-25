@@ -6,8 +6,8 @@ import (
 	"math/big"
 
 	"github.com/reiver/go-eip55"
-	"sourcecode.social/reiver/go-erorr"
-	"sourcecode.social/reiver/go-opt"
+	"github.com/reiver/go-erorr"
+	"github.com/reiver/go-opt"
 )
 
 // AddressLength is the length of the eth-address measured in number of bytes.
